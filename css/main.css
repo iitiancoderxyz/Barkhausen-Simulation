@@ -216,3 +216,32 @@ canvas {
 }
 
 .theory-documentation h2 { color: var(--accent-glow); border-bottom: 1px solid var(--border-main); padding-bottom: 0.5rem; }
+
+/* This container should wrap your Sidebar and your Graph/Canvas */
+.container {
+    display: flex;
+    flex-direction: row; /* Default for Laptops: Side-by-side */
+    flex-wrap: wrap;    /* Allows stacking on Mobile */
+    width: 100%;
+}
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack vertically on phones */
+    }
+
+    .sidebar {
+        width: 100%;
+        order: 2; /* Moves buttons BELOW the graph */
+        max-height: 300px;
+        overflow-y: auto; /* Makes sidebar scrollable so it doesn't stay half-visible */
+    }
+
+    canvas {
+        width: 100% !important;
+        height: auto !important;
+        order: 1; /* Keeps the Graph at the TOP */
+    }
+}
+
