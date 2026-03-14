@@ -1,0 +1,218 @@
+/* ROOT VARIABLES - The DNA of our UI */
+:root {
+    --bg-deep: #05070a;
+    --bg-panel: #0d1117;
+    --bg-card: rgba(22, 27, 34, 0.7);
+    --border-main: #30363d;
+    --accent-glow: #00d4ff;
+    --accent-dim: #004d61;
+    --text-high: #f0f6fc;
+    --text-low: #8b949e;
+    --error: #f85149;
+    --success: #238636;
+    --font-main: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+}
+
+* { box-sizing: border-box; }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: var(--bg-deep);
+    color: var(--text-high);
+    font-family: var(--font-main);
+    overflow: hidden; /* Prevent body scroll, use container scroll */
+}
+
+/* APP SHELL LAYOUT */
+.app-shell {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* SIDEBAR - High-tech control deck */
+.sidebar {
+    width: 340px;
+    background: var(--bg-panel);
+    border-right: 1px solid var(--border-main);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-main);
+}
+
+.logo-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--accent-glow);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.nav-section {
+    font-size: 0.7rem;
+    color: var(--text-low);
+    margin: 2rem 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 0;
+    color: var(--text-low);
+    text-decoration: none;
+    transition: 0.2s;
+    font-size: 0.9rem;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: var(--accent-glow);
+    padding-left: 5px;
+}
+
+/* CONTROL ELEMENTS */
+.control-panel {
+    margin-top: auto;
+    background: rgba(0,0,0,0.2);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.control-header {
+    font-size: 0.8rem;
+    margin: 1rem 0 0.5rem;
+    color: var(--text-low);
+}
+
+.readout {
+    font-family: var(--font-mono);
+    color: var(--accent-glow);
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent-glow);
+    cursor: pointer;
+}
+
+.primary-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--accent-glow);
+    color: var(--accent-glow);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.primary-btn:hover {
+    background: var(--accent-glow);
+    color: var(--bg-deep);
+    box-shadow: 0 0 20px var(--accent-dim);
+}
+
+/* MAIN VIEWPORT */
+.content {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-nav {
+    height: 60px;
+    border-bottom: 1px solid var(--border-main);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 320px);
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+/* CARDS */
+.viz-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-main);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.viz-header {
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.3);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-low);
+}
+
+canvas {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated; /* Keeps waveforms sharp */
+}
+
+/* STATS BAR */
+.stats-bar {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.stat-item {
+    flex: 1;
+    background: var(--bg-panel);
+    padding: 1rem;
+    border-radius: 8px;
+    border-top: 2px solid var(--border-main);
+}
+
+.stat-item label { font-size: 0.7rem; color: var(--text-low); }
+.stat-item .val { 
+    font-family: var(--font-mono); 
+    font-size: 1.4rem; 
+    color: var(--accent-glow);
+}
+
+/* THEORY SECTION */
+.theory-documentation {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #c9d1d9;
+}
+
+.theory-documentation h2 { color: var(--accent-glow); border-bottom: 1px solid var(--border-main); padding-bottom: 0.5rem; }

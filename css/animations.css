@@ -1,0 +1,57 @@
+/* Status Pulse */
+@keyframes pulse-status {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--error);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 0 8px var(--error);
+}
+
+.active .status-dot {
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success);
+    animation: pulse-status 2s infinite;
+}
+
+/* CRT Screen Flicker Effect */
+@keyframes flicker {
+    0% { opacity: 0.97; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.9; }
+    15% { opacity: 0.98; }
+    70% { opacity: 0.96; }
+    80% { opacity: 0.92; }
+    90% { opacity: 0.99; }
+    100% { opacity: 1; }
+}
+
+.viz-card canvas {
+    animation: flicker 0.1s infinite alternate;
+}
+
+/* Data Entry Fade */
+.val {
+    transition: color 0.1s ease-in-out;
+}
+
+/* Loading Spinners or Progress */
+@keyframes sweep {
+    from { left: -100%; }
+    to { left: 100%; }
+}
+
+.scanning-bar {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+    animation: sweep 4s linear infinite;
+}

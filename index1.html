@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumMag v3.0 | Barkhausen Analysis Suite</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-icon"></div>
+                <span><strong>PVN-Barkhausen LAB</strong>  </span>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-section">SIMULATION</div>
+                <a href="#dashboard" class="nav-link active">Live Terminal</a>
+                <a href="#theory" class="nav-link">Theory & Math</a>
+                <a href="#config" class="nav-link">Material Config</a>
+
+                <div class="nav-section">UTILITIES</div>
+                <button id="exportData" class="nav-link">Export CSV</button>
+                <button id="resetLab" class="nav-link">Hard Reset</button>
+            </nav>
+
+            <div class="control-panel">
+                <div class="control-header">Field Control ($H$)</div>
+                <div class="slider-container">
+                    <input type="range" id="fieldSlider" min="-250" max="250" value="0" step="0.01">
+                    <div class="readout">
+                        <span id="fieldVal">0.00</span> <small>A/m</small>
+                    </div>
+                </div>
+
+                <div class="control-header">Amplifier Gain</div>
+                <input type="range" id="gainSlider" min="1" max="100" value="45">
+
+                <div class="control-header">Sweep Mode</div>
+                <select id="sweepMode">
+                    <option value="manual">Manual Manipulation</option>
+                    <option value="sine">Automatic Sine (0.5Hz)</option>
+                    <option value="triangle">Automatic Triangle</option>
+                </select>
+
+                <button id="initSystem" class="primary-btn">INITIALIZE TRANSDUCER</button>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="top-nav">
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    <span id="statusText">SYSTEM IDLE</span>
+                </div>
+                <div class="metadata">
+                    BUFFER: <span id="bufferLevel">0%</span> | LATENCY: <span id="latency">1.2ms</span>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <div class="viz-card" id="card-osc">
+                    <div class="viz-header">
+                        <span>Induced Voltage (Barkhausen Noise)</span>
+                        <div class="viz-tools">
+                            <span>50mV / div</span>
+                            <span>1ms / div</span>
+                        </div>
+                    </div>
+                    <canvas id="oscCanvas"></canvas>
+                </div>
+
+                <div class="viz-card" id="card-hys">
+                    <div class="viz-header">
+                        <span>Hysteresis Analysis ($B$ vs $H$)</span>
+                    </div>
+                    <canvas id="hysCanvas"></canvas>
+                </div>
+
+                <div class="viz-card" id="card-domain">
+                    <div class="viz-header">
+                        <span>Magnetic Domain Dynamics</span>
+                    </div>
+                    <canvas id="domainCanvas"></canvas>
+                </div>
+
+                <div class="viz-card" id="card-spectrum">
+                    <div class="viz-header">
+                        <span>FFT Power Spectrum</span>
+                    </div>
+                    <canvas id="specCanvas"></canvas>
+                </div>
+            </div>
+
+            <section class="stats-bar">
+                <div class="stat-item">
+                    <label>Peak Voltage ($V_{pk}$)</label>
+                    <div class="val" id="stat-vpk">0.00 mV</div>
+                </div>
+                <div class="stat-item">
+                    <label>RMS Noise</label>
+                    <div class="val" id="stat-rms">0.00 μV</div>
+                </div>
+                <div class="stat-item">
+                    <label>Jump Count ($N_b$)</label>
+                    <div class="val" id="stat-jumps">0</div>
+                </div>
+                <div class="stat-item">
+                    <label>Entropy ($S$)</label>
+                    <div class="val" id="stat-entropy">0.00</div>
+                </div>
+            </section>
+
+            <section class="theory-documentation" id="theory">
+                <div class="theory-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 40px; font-family: 'Segoe UI', sans-serif;">
+
+                    <div class="glass-card"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(0, 242, 255, 0.2); border-radius: 20px; padding: 30px; color: #e0e0e0;">
+                        <h2
+                            style="color: #00f2ff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #00f2ff; padding-left: 15px;">
+                            Physical Principle</h2>
+                        <p>The simulation models <b>Stochastic Domain Wall Dynamics</b>. In a perfect crystal,
+                            magnetization would be smooth. However, real-world materials have "Impurities" and "Lattice
+                            Defects."</p>
+
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 15px;">
+                                <b style="color: #bc4eff;">1. Pinning Energy:</b> Domain walls get trapped in local
+                                energy minima caused by structural defects.
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <b style="color: #bc4eff;">2. Thermal Activation:</b> The simulation assumes the
+                                external field (H) provides enough energy to overcome these pinning barriers.
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <b style="color: #bc4eff;">3. Avalanche Effect:</b> One "jump" often triggers nearby
+                                domains to flip, creating the "crackle" noise seen in the simulation graphs.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card"
+                        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(188, 78, 255, 0.2); border-radius: 20px; padding: 30px; color: #e0e0e0;">
+                        <h2
+                            style="color: #bc4eff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #bc4eff; padding-left: 15px;">
+                            Mathematical Modeling</h2>
+
+                        <p>The simulation calculates the <b>Induced EMF (E)</b> using the rate of change
+                            of magnetic flux:</p>
+                        <div
+                            style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin: 15px 0; text-align: center; color: #00f2ff; font-size: 1.2rem;">
+                            E=−NA(dB/dt)​
+                        </div>
+
+                        <p>Where the total Magnetic Induction (B) is defined by the material response:</p>
+                        <div
+                            style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin: 15px 0; text-align: center; color: #00f2ff; font-size: 1.2rem;">
+                            B = 𝜇0(H + M) 
+                        </div>
+
+                        <p><b>The Barkhausen Jump Factor:</b><br>Each spike represents a discrete change in
+                            magnetization ΔM over a tiny time interval Δt:</p>
+                        <div
+                            style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin: 15px 0; text-align: center; color: #00f2ff; font-size: 1.2rem;">
+                            ΔΦ≈μ0​⋅Vdomain​⋅ΔM
+                        </div>
+                    </div>
+
+                    <div class="glass-card"
+                        style="grid-column: 1 / -1; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255,255,255,0.1); border-radius: 20px; padding: 30px;">
+                        <h2 style="color: #fff; text-align: center;">Variable Definitions</h2>
+                        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+                            <div style="text-align: center; width: 200px;">
+                                <h3 style="color: #00f2ff; margin-bottom: 5px;">E</h3>
+                                <p style="font-size: 0.9rem;">Induced Electromotive Force (The Voltage Spikes)</p>
+                            </div>
+                            <div style="text-align: center; width: 200px;">
+                                <h3 style="color: #00f2ff; margin-bottom: 5px;">H</h3>
+                                <p style="font-size: 0.9rem;">Applied Magnetic Field (The external input)</p>
+                            </div>
+                            <div style="text-align: center; width: 200px;">
+                                <h3 style="color: #00f2ff; margin-bottom: 5px;">M</h3>
+                                <p style="font-size: 0.9rem;">Magnetization (The material's internal response)</p>
+                            </div>
+                            <div style="text-align: center; width: 200px;">
+                                <h3 style="color: #00f2ff; margin-bottom: 5px;">Vdomain</h3>
+                                <p style="font-size: 0.9rem;">Volume of the flipped magnetic domain</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es/tex-mml-chtml.js"></script>
+            </section>
+        </main>
+    </div>
+    <div id="portal-container">
+        <a href="../index.html" class="portal-btn">
+            <span class="glitch-text">RETURN TO MAIN_TERMINAL</span>
+            <div class="btn-scanline"></div>
+        </a>
+    </div>
+
+    <footer>
+        <p>DESIGNED BY PAVAN PATIL // 25BEC077</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

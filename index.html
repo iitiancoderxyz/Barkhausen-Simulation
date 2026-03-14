@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description"
+        content="Advanced Barkhausen Effect Simulation by Pavan Patil. Explore magnetic domain wall dynamics and stochastic noise logic.">
+    <meta name="keywords"
+        content="Barkhausen Effect, Pavan Patil, 25BEC077, Physics Simulation, Magnetic Domains, Domain Wall Pinning, Metallurgical Engineering">
+    <meta name="author" content="Pavan Patil">
+    <title>Barkhausen Dynamics | Quantum Magnetism Portal</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+
+        <header class="main-header animate-in">
+            <div class="header-overlay"></div>
+            <div class="glitch-wrapper">
+                <h1 class="glitch-text" data-text="BARKHAUSEN EFFECT">BARKHAUSEN EFFECT</h1>
+            </div>
+            <p class="subtitle">Direct Evidence of Ferromagnetic Domains</p>
+            <div class="scroll-indicator"><span>SCROLL TO DISCOVER</span></div>
+        </header>
+        <div id="portal-container">
+            <a href="/index1.html" class="portal-btn">
+                <span class="glitch-text">Simulation</span>
+                <div class="btn-scanline"></div>
+            </a>
+        </div>
+        <main class="content-flow">
+            <section class="info-block glass-panel" id="overview">
+                <div class="accent-bar"></div>
+                <div class="content-grid">
+                    <div class="text-side">
+                        <h2 class="section-tag">Historical Protocol // 1919</h2>
+                        <p class="lead-text">
+                            Discovered by the German physicist <strong>Heinrich Georg Barkhausen</strong>, this
+                            phenomenon shattered the belief that magnetization was a smooth, continuous flow.
+                        </p>
+                        <p>
+                            Barkhausen revealed that when a slow, smooth magnetic field is applied to material like
+                            iron, the magnetization occurs in <span class="highlight">minute, discrete steps</span>.
+                        </p>
+                    </div>
+
+                    <div class="data-side">
+                        <div class="data-card">
+                            <span class="label">Key Figure</span>
+                            <span class="value">Heinrich Georg Barkhausen</span>
+                        </div>
+                        <div class="data-card">
+                            <span class="label">Context</span>
+                            <span class="value">Ferromagnetic Domains</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-block">
+                <div class="theory-card">
+                    <h2>The Mechanics of Jumps</h2>
+                    <p>
+                        These sudden, discontinuous jumps are the physical manifestation of microscopic clusters of
+                        atoms—known as <strong>Ferromagnetic Domains</strong>—realigning themselves.
+                    </p>
+
+
+
+                    <div class="mechanism-grid">
+                        <div class="mechanism-box">
+                            <h3>Aggregation</h3>
+                            <p>Neighboring atomic magnets suddenly aggregate, causing clusters to increase in size
+                                instantly.</p>
+                        </div>
+                        <div class="mechanism-box">
+                            <h3>Rotation</h3>
+                            <p>Under strong fields, entire domains suddenly rotate to align with the external
+                                magnetizing force.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-block glass-panel highlight-border">
+                <div class="acoustic-layout">
+                    <div class="icon-box">
+                        <div class="pulse-ring"></div>
+                        <span class="audio-trigger">🔊</span>
+                    </div>
+                    <div class="acoustic-text">
+                        <h3>The Acoustic Proof</h3>
+                        <p>
+                            By winding a coil around the material, these sudden magnetic transitions induce pulses of
+                            current. When amplified, these pulses produce a series of <strong>audible clicks</strong> in
+                            a loudspeaker—the literal "sound" of atoms snapping into place.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <section class="info-block section-divider" id="fundamentals">
+        <div class="glass-panel wide-layout animate-on-scroll">
+            <h2 class="glow-title">Ferromagnetic Core Intelligence</h2>
+
+            <div class="intro-flex">
+                <div class="text-main">
+                    <p class="lead">
+                        Ferromagnetism is the physical phenomenon where uncharged materials—primarily <span
+                            class="chem">Fe</span> (Iron), <span class="chem">Co</span> (Cobalt), and <span
+                            class="chem">Ni</span> (Nickel)—exhibit powerful attractive forces.
+                    </p>
+                    <p>
+                        From ancient lodestones to modern electric motors, these materials are the backbone of modern
+                        electromagnetics. Unlike other substances, they are <strong>magnetized easily</strong> and
+                        retain a "memory" of that magnetization through a process called <strong>Hysteresis</strong>.
+                    </p>
+                </div>
+
+                <div class="side-stats">
+                    <div class="stat-box">
+                        <span class="stat-label">Saturation Limit</span>
+                        <div class="progress-bar">
+                            <div class="fill" style="width: 100%"></div>
+                        </div>
+                        <p class="stat-desc">The maximum alignment state under strong fields.</p>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Material Loss Point</span>
+                        <span class="stat-value">The Curie Point</span>
+                        <p class="stat-desc">The temperature threshold where magnetism vanishes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-block">
+        <div class="grid-2-col">
+            <div class="card-dark border-neon">
+                <h3>Atomic Electromagnets</h3>
+                <p>
+                    Magnetism starts at the electron level. Each atom acts as an elementary electromagnet produced by:
+                </p>
+                <ul class="tech-list">
+                    <li><i class="bullet"></i> <strong>Electron Orbital Motion:</strong> Movement around the nucleus.
+                    </li>
+                    <li><i class="bullet"></i> <strong>Electron Spin:</strong> The intrinsic quantum "spin" of the
+                        particles.</li>
+                </ul>
+                <p>
+                    Below the <strong>Curie Point</strong>, these tiny magnets spontaneously align, reinforcing each
+                    other's fields to create a massive net magnetic moment.
+                </p>
+            </div>
+
+            <div class="card-dark border-purple">
+                <h3>The Quantum Shield</h3>
+                <p>
+                    Why don't they align randomly? The <strong>Pauli Exclusion Principle</strong> and exchange
+                    interactions force electrons in nearby atoms to align their spins parallel.
+                </p>
+                <p>
+                    This parallel alignment places the material in its <span class="highlight-purple">lowest energy
+                        configuration</span>, preventing thermal agitation from destroying the magnetic order.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-block glass-panel" id="weiss-theory">
+        <div class="theory-header">
+            <span class="protocol-tag">Protocol: Pierre-Ernest Weiss</span>
+            <h2>The Weiss Postulate</h2>
+        </div>
+
+        <div class="content-split">
+            <div class="text-content">
+                <p>
+                    French physicist Pierre-Ernest Weiss postulated that a ferromagnetic solid is a mosaic of small
+                    regions called <strong>Domains</strong>.
+                </p>
+                <ul class="step-process">
+                    <li><strong>State Alpha:</strong> Randomly oriented domains (No net magnetism).</li>
+                    <li><strong>State Beta:</strong> External field application causes domains to <em>rotate</em> and
+                        <em>grow</em>.
+                    </li>
+                    <li><strong>State Omega:</strong> Saturation—the entire object comprises a single, perfectly aligned
+                        domain.</li>
+                </ul>
+            </div>
+
+            <div class="visualization-zone">
+
+                <div class="observation-methods">
+                    <h4>Detection Methods</h4>
+                    <div class="tag-cloud">
+                        <span>Polarized Neutrons</span>
+                        <span>Electron Beams</span>
+                        <span>X-Rays</span>
+                        <span>Colloidal Magnetite</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="info-block" id="material-registry">
+        <div class="glass-panel border-cyan">
+            <h2 class="section-title">Material Registry // Element & Alloy Analysis</h2>
+
+            <div class="registry-grid">
+                <div class="registry-category">
+                    <h3 class="category-header">Transition Elemental Core</h3>
+                    <div class="element-card">
+                        <span class="atomic-num">26</span>
+                        <span class="symbol">Fe</span>
+                        <span class="name">Iron</span>
+                        <div class="coupling-tag">Strong Collinear Coupling</div>
+                    </div>
+                    <div class="element-card">
+                        <span class="atomic-num">28</span>
+                        <span class="symbol">Ni</span>
+                        <span class="name">Nickel</span>
+                    </div>
+                    <div class="element-card">
+                        <span class="atomic-num">27</span>
+                        <span class="symbol">Co</span>
+                        <span class="name">Cobalt</span>
+                    </div>
+                </div>
+
+                <div class="registry-category">
+                    <h3 class="category-header">Rare-Earth Series</h3>
+                    <div class="element-card rare">
+                        <span class="atomic-num">64</span>
+                        <span class="symbol">Gd</span>
+                        <span class="name">Gadolinium</span>
+                    </div>
+                    <div class="element-card cryo">
+                        <span class="symbol">Tb/Dy</span>
+                        <span class="name">Terbium / Dysprosium</span>
+                        <span class="note">Cryogenic Ferromagnets</span>
+                    </div>
+                    <div class="element-card cryo">
+                        <span class="symbol">Ho/Er/Tm</span>
+                        <span class="name">Nonparallel Ordering</span>
+                        <span class="note">Below 32K</span>
+                    </div>
+                </div>
+
+                <div class="registry-category">
+                    <h3 class="category-header">Synthetic & Ionic Structures</h3>
+                    <div class="data-strip">
+                        <h4>Heusler Alloys</h4>
+                        <p>CuAlMn₃: Ferromagnetism emerging from non-ferromagnetic Manganese (Mn).</p>
+                    </div>
+                    <div class="data-strip">
+                        <h4>Ionic Ferromagnets</h4>
+                        <p>Chalcogenides & Halides containing Cr, Eu, or Mn ions.</p>
+                    </div>
+                    <div class="data-strip">
+                        <h4>Spinel Crystal Structure</h4>
+                        <p>Ionic compounds exhibiting spontaneous ferromagnetic ordering.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-block glass-panel" id="thermal-dynamics">
+        <div class="dual-layout">
+            <div class="thermal-visual">
+                <h2 class="glow-text">Thermal Overdrive Protocol</h2>
+                <p>Above a critical threshold, the <strong>Thermal Energy</strong> overrides internal alignment forces.
+                    The spontaneous magnetization vanishes, transitioning the material into a <strong>Paramagnetic
+                        State</strong>.</p>
+
+                <div class="temp-monitor">
+                    <div class="monitor-row">
+                        <span>Iron (Fe)</span>
+                        <div class="temp-bar">
+                            <div class="temp-fill" style="width: 74%"></div>
+                        </div>
+                        <span class="temp-val">1043 K</span>
+                    </div>
+                    <div class="monitor-row">
+                        <span>Cobalt (Co)</span>
+                        <div class="temp-bar">
+                            <div class="temp-fill" style="width: 95%"></div>
+                        </div>
+                        <span class="temp-val">1394 K</span>
+                    </div>
+                    <div class="monitor-row">
+                        <span>Nickel (Ni)</span>
+                        <div class="temp-bar">
+                            <div class="temp-fill" style="width: 45%"></div>
+                        </div>
+                        <span class="temp-val">631 K</span>
+                    </div>
+                    <div class="monitor-row">
+                        <span>Gadolinium (Gd)</span>
+                        <div class="temp-bar">
+                            <div class="temp-fill" style="width: 20%"></div>
+                        </div>
+                        <span class="temp-val">293 K</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="person-card glass-morph">
+                <div class="profile-header">
+                    <span class="tag">Pioneer</span>
+                    <h3>Pierre Curie</h3>
+                </div>
+                <p class="bio">Formulated the law governing the loss of magnetization. His Molecular Field Theory
+                    explains how temperature disrupts the parallel alignment of dipoles.</p>
+                <div class="related-tags">
+                    <span>#Hysteresis</span>
+                    <span>#CuriePoint</span>
+                    <span>#SoftMagneticMaterials</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="info-block section-divider" id="hysteresis-loop">
+        <div class="glass-panel diagnostic-border animate-on-scroll">
+            <h2 class="glow-title">Hysteresis Diagnostic // Signal Lag</h2>
+
+            <div class="intro-flex">
+                <div class="text-main">
+                    <p class="lead">
+                        Derived from the Greek word for <em>"lagging behind,"</em> <strong>Hysteresis</strong> is the
+                        physical delay between the application of a magnetizing field (\(H\)) and the resulting flux
+                        density (\(B\)).
+                    </p>
+                    <p>
+                        When current flows through the coil, it forces atomic magnets to align. However, this alignment
+                        is not instantaneous. The material "remembers" its previous state, creating a loop that defines
+                        its magnetic efficiency.
+                    </p>
+                </div>
+
+                <div class="person-column">
+                    <div class="mini-profile">
+                        <span class="pioneer-name">Sir Alfred Ewing</span>
+                        <span class="contribution">Coined the term "Hysteresis"</span>
+                    </div>
+                    <div class="mini-profile">
+                        <span class="pioneer-name">C.P. Steinmetz</span>
+                        <span class="contribution">Quantified Hysteresis Loss</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-block">
+        <div class="loop-analysis-grid">
+            <div class="visualizer-card glass-panel">
+                <div class="graph-header">
+                    <span class="status-dot pulse"></span>
+                    <h3>B-H Phase Mapping</h3>
+                </div>
+
+
+
+                <div class="loop-legend">
+                    <div class="legend-item">
+                        <span class="color-dot sat"></span>
+                        <span><strong>Saturation:</strong> Maximum alignment threshold.</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-dot rem"></span>
+                        <span><strong>Remanence (Bᵣ):</strong> The "Memory" or residual magnetism.</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-dot coe"></span>
+                        <span><strong>Coercive Force (H꜀):</strong> The field required to reset to zero.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-card">
+                <div class="warning-box">
+                    <h3 class="alert-text">Thermal Energy Loss</h3>
+                    <p>
+                        Magnetization is not free. The energy lost as heat during a cycle is directly proportional to
+                        the <strong>Area of the Hysteresis Loop</strong>.
+                    </p>
+                </div>
+
+                <div class="application-toggle">
+                    <div class="toggle-side">
+                        <h4>Permanent Magnets</h4>
+                        <p>High Retentivity & High Coercivity. Wide loops to "trap" magnetism.</p>
+                    </div>
+                    <div class="toggle-side">
+                        <h4>Transformer Cores</h4>
+                        <p>Low Hysteresis Loss. Narrow loops to prevent energy waste as heat.</p>
+                    </div>
+                </div>
+
+                <div class="equation-box">
+                    <span class="eq-label">Work Done (per cycle)</span>
+                    <code class="formula">W = ∮ H dB</code>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="info-block section-divider" id="classification">
+        <div class="glass-panel border-gold animate-on-scroll">
+            <h2 class="glow-title">Universal Magnetic Matrix // Faraday Protocol</h2>
+
+            <div class="intro-flex">
+                <div class="text-main">
+                    <p class="lead">
+                        In 1845, <strong>Michael Faraday</strong> revolutionized physics by proving that <em>all
+                            matter</em> is affected by magnetic fields. From copper to iron, substances are classified
+                        by how they react to an inhomogeneous field.
+                    </p>
+                    <div class="equation-box-main">
+                        <span class="eq-tag">Susceptibility Relation</span>
+                        <code class="formula-large">M = χH</code>
+                    </div>
+                </div>
+
+                <div class="force-analyzer">
+                    <h4>Force Calculation Vector</h4>
+                    <div class="code-snippet">
+                        F = χμ₀VH (dH/dx)
+                    </div>
+                    <p class="small-note">Positive χ → Attraction | Negative χ → Repulsion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-block">
+        <div class="matrix-grid">
+            <div class="matrix-card diamagnetic">
+                <div class="matrix-header">
+                    <span class="val-negative">χ < 0</span>
+                            <h3>Diamagnetism</h3>
+                </div>
+                <p>Substances like <strong>Copper and Silver</strong>. They exhibit a weak repulsion from magnetic
+                    poles.</p>
+                <ul class="matrix-stats">
+                    <li>Order: -10⁻⁵ (Solids)</li>
+                    <li>Temp: Independent</li>
+                    <li>Property: Molecular Characteristic</li>
+                </ul>
+            </div>
+
+            <div class="matrix-card paramagnetic">
+                <div class="matrix-header">
+                    <span class="val-positive">χ > 0</span>
+                    <h3>Paramagnetism</h3>
+                </div>
+                <p>Substances that attract weakly. Magnetization is proportional to field strength but sensitive to
+                    heat.</p>
+                <ul class="matrix-stats">
+                    <li>Order: 10⁻³ to 10⁻⁵</li>
+                    <li>Temp: Inversely Proportional</li>
+                    <li>Law: Curie's Law (χ = C/T)</li>
+                </ul>
+            </div>
+
+            <div class="matrix-card ferromagnetic">
+                <div class="matrix-header">
+                    <span class="val-infinite">χ → ∞</span>
+                    <h3>Ferromagnetism</h3>
+                </div>
+                <p>The "High-Energy" phase. Shows spontaneous magnetization and large-scale attraction below the Curie
+                    point.</p>
+                <ul class="matrix-stats">
+                    <li>Phase: Spontaneous Order</li>
+                    <li>Law: Curie-Weiss Law</li>
+                    <li>Transition: T < θ</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="info-block glass-panel" id="criticality">
+        <div class="criticality-layout">
+            <div class="graph-side">
+                <h3 class="purple-glow">The Criticality Threshold</h3>
+                <div class="formula-display">
+                    χ = C / (T − Tc)
+                </div>
+                <p>As temperature \(T\) approaches the constant \(\theta\), susceptibility becomes infinite. This is the
+                    exact mathematical moment a substance transitions from <strong>Paramagnetic</strong> to
+                    <strong>Ferromagnetic</strong>.
+                </p>
+            </div>
+
+            <div class="logic-side">
+                <div class="logic-card">
+                    <h4>Spontaneous Magnetization</h4>
+                    <p>Below the threshold, the material maintains a magnetic moment without an external field. This
+                        state is highly dependent on:
+                    <div class="tag-cloud">
+                        <span>#ThermalHistory</span>
+                        <span>#MechanicalTreatment</span>
+                        <span>#MagneticMemory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="info-block section-divider" id="dipole-logic">
+        <div class="glass-panel border-neon animate-on-scroll">
+            <h2 class="glow-title">Dipole Dynamics // Thermal vs. Magnetic Energy</h2>
+
+            <div class="intro-flex">
+                <div class="text-main">
+                    <p class="lead">
+                        The magnetic personality of matter is a constant battle between <strong>Magnetic Energy
+                            (\(mB\))</strong> and <strong>Thermal Energy (\(kT\))</strong>.
+                    </p>
+                    <div class="logic-flow">
+                        <div class="logic-step">
+                            <span class="logic-label">No Free Moments</span>
+                            <p>Electron orbital currents create <strong>Diamagnetism</strong>. Susceptibility is
+                                negative and temperature-independent.</p>
+                        </div>
+                        <div class="logic-step">
+                            <span class="logic-label">Free Moments (Random)</span>
+                            <p>Thermal agitation (\(kT\)) dominates, causing <strong>Paramagnetism</strong>. Alignment
+                                only occurs under an external field.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ratio-monitor">
+                    <h4>Energy Ratio Analyzer</h4>
+                    <div class="formula-box-small">
+                        Ratio = mB/kT
+                    </div>
+                    <ul class="ratio-results">
+                        <li><strong>Small Ratio:</strong> Curie's Law applies.</li>
+                        <li><strong>Large Ratio:</strong> Magnetic Saturation achieved.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-block">
+        <div class="symmetry-grid">
+            <div class="symmetry-header">
+                <h2>Lattice Alignment Architectures</h2>
+                <p>Below transition temperatures, mutual forces between dipoles create spontaneous order even without an
+                    external field.</p>
+            </div>
+
+            <div class="architecture-cards">
+                <div class="arch-card ferro">
+                    <div class="arch-icon">↑↑↑↑</div>
+                    <h3>Ferromagnetism</h3>
+                    <p>Neighboring dipoles align <strong>Parallel</strong>. Results in powerful macroscopic permanent
+                        magnetization.</p>
+                </div>
+
+                <div class="arch-card antiferro">
+                    <div class="arch-icon">↑↓↑↓</div>
+                    <h3>Antiferromagnetism</h3>
+                    <p>Equal dipoles align <strong>Antiparallel</strong>. They neutralize each other, resulting in zero
+                        macroscopic magnetization.</p>
+                </div>
+
+                <div class="arch-card ferri">
+                    <div class="arch-icon">↑⇊↑⇊</div>
+                    <h3>Ferrimagnetism</h3>
+                    <p>Unequal dipoles align <strong>Antiparallel</strong>. A net permanent magnetization remains due to
+                        the magnitude difference.</p>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="info-block glass-panel" id="element-map">
+        <div class="map-layout">
+            <div class="map-text">
+                <h2 class="glow-text">Elemental Susceptibility Matrix</h2>
+                <p>Conduction electrons in metals contribute a small, temperature-independent positive susceptibility.
+                    This can flip the overall magnetic sign of an element.</p>
+            </div>
+
+            <div class="visual-placeholder">
+
+                <p class="caption">Figure 13: Analysis of Molar Susceptibility across Alkali Metals and Rare Gases.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-block section-divider" id="diamagnetic-math">
+        <div class="glass-panel border-silver animate-on-scroll">
+            <h2 class="glow-title">Diamagnetic Calculus // Orbital Precession</h2>
+
+            <div class="intro-flex">
+                <div class="text-main">
+                    <p class="lead">
+                        Diamagnetism arises from the <strong>Larmor Precession</strong> of electron orbits. When an
+                        external field \(B\) is applied, it exerts a force that alters orbital motion, creating an
+                        induced moment that opposes the field.
+                    </p>
+                    <div class="highlight-box">
+                        <strong>Lenz’s Law Protocol:</strong> The negative sign in susceptibility is a direct physical
+                        consequence of the system opposing the change in magnetic flux.
+                    </div>
+                </div>
+
+                <div class="formula-card-large">
+                    <span class="formula-label">Volume Susceptibility (χ)</span>,
+                    χ = − (Ne² μ₀ / 6m) ⟨r²⟩
+                    <p class="formula-notes">Independent of Temperature and Atomic Surroundings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-block">
+        <div class="grid-2-col">
+            <div class="metric-card">
+                <h3>Molar Susceptibility (χ_mole)</h3>
+                <p>For precise calculation across a kilogram mole, we utilize the molecular weight metrics:</p>
+                <div class="code-box">
+                    χ_mole = -1.97 × 10⁻¹⁰ Σ ⟨r²⟩
+                </div>
+                <p>With \(\Sigma \langle r^2 \rangle\) approximating \(10^{-21} \text{ m}^2\), molar values typically
+                    range between \(10^{-9}\) and \(10^{-10}\).</p>
+            </div>
+
+            <div class="metric-card superconductor">
+                <div class="quantum-tag">Quantum Override</div>
+                <h3>The Meissner Effect</h3>
+                <p>In superconductors, diamagnetism reaches its theoretical limit. Conduction electrons spread across
+                    the entire sample, creating a massive effective \(\langle r^2 \rangle\).</p>
+                <ul class="effect-list">
+                    <li><strong>Perfect Repulsion:</strong> Field is completely expelled.</li>
+                    <li><strong>χ Value:</strong> Exactly -1 (Perfect Diamagnetism).</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="info-block section-divider" id="paramagnetic-quantum">
+            <div class="glass-panel border-purple animate-on-scroll">
+                <h2 class="glow-title">Paramagnetic Analysis // Quantum Saturation</h2>
+
+                <div class="intro-flex">
+                    <div class="text-main">
+                        <p class="lead">
+                            Paramagnetism arises in matter where atoms possess <strong>Permanent Dipole
+                                Moments</strong>. The behavior is governed by the <strong>Brillouin Function</strong>, a
+                            quantum calculation of the ratio between Magnetic Energy and Thermal Energy.
+                        </p>
+                        <div class="unit-card">
+                            <strong>Bohr Magneton (μᵦ):</strong> 9.274 × 10⁻²⁴ A·m²
+                            <p class="small">The fundamental unit of atomic magnetic moment.</p>
+                        </div>
+                    </div>
+
+                    <div class="visualizer-side">
+
+                        <p class="caption">Figure 15: Magnetization as a function of B/T for Cr, Fe, and Gd ions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-block">
+            <div class="grid-2-col">
+                <div class="metric-card">
+                    <h3>Nuclear Magnetic Susceptibility (χₙ)</h3>
+                    <p>Nuclei also contribute to magnetism, though their moments are 1,000x smaller than electronic
+                        moments.</p>
+                    <div class="data-point">χₙ ≈ 10⁻⁸ / T</div>
+                    <p>In solid Hydrogen, this effect becomes measurable below 1 K, exceeding electronic diamagnetism.
+                    </p>
+                </div>
+
+                <div class="metric-card border-blue">
+                    <div class="quantum-tag">Pauli Exclusion</div>
+                    <h3>Conduction Electron Paramagnetism</h3>
+                    <p>In metals, electrons occupy states in pairs (opposite spins). An external field shifts electrons
+                        to higher states to align moments.</p>
+                    <ul class="effect-list">
+                        <li><strong>Temp Independent:</strong> Unlike Curie's Law, this is stable across temperatures.
+                        </li>
+                        <li><strong>Net Sign:</strong> Can be (+) or (-) depending on diamagnetic competition.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-block section-divider" id="exchange-logic">
+            <div class="glass-panel border-red animate-on-scroll">
+                <h2 class="glow-title">Quantum Exchange // The Spin Architect</h2>
+
+                <div class="intro-flex">
+                    <div class="text-main">
+                        <p class="lead">
+                            Ferromagnetism is a paradox: magnetic repulsion should push dipoles apart. However, the
+                            <strong>Exchange Interaction</strong>—a quantum mechanical effect—forces parallel alignment.
+                        </p>
+                        <div class="shell-interaction">
+                            <div class="shell-box d-shell">
+                                <strong>3d Shell:</strong> Magnetization electrons. Pauli exclusion acts as "repulsion"
+                                here.
+                            </div>
+                            <div class="shell-box s-shell">
+                                <strong>4s Shell:</strong> Conduction electrons. They act as the "Attractive Glue,"
+                                aligning the 3d electrons across multiple atoms.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <h4>Molecular Field Theory</h4>
+                        <div class="code-box">H_int = λM</div>
+                        <p>The internal "Molecular Field" is proportional to magnetization, effectively creating a
+                            self-sustaining alignment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-block glass-panel" id="criticality-data">
+            <div class="dual-layout">
+                <div class="graph-analysis">
+                    <h3 class="neon-blue">Curie-Weiss Linearity</h3>
+                    <p>A plot of \(1/\chi\) against \(T\) reveals the exact point of transition. When \(1/\chi\) hits
+                        zero, we reach the <strong>Curie Temperature (\(T_c\))</strong>.</p>
+
+
+
+                    <div class="registry-mini">
+                        <h4>Transition Registry</h4>
+                        <div class="reg-item"><span>Iron (Fe)</span> <strong>1,043 K</strong></div>
+                        <div class="reg-item"><span>Cobalt (Co)</span> <strong>1,394 K</strong></div>
+                        <div class="reg-item"><span>MnAs</span> <strong>318 K</strong></div>
+                    </div>
+                </div>
+
+                <div class="hysteresis-detail">
+                    <h3 class="neon-pink">Hysteresis & Domain Macroscopics</h3>
+                    <p>Magnetization involves the reorientation of <strong>Domains</strong> on a macroscopic scale. This
+                        accounts for the lag (Hysteresis) and memory (Remanence).</p>
+
+
+
+                    <div class="application-matrix">
+                        <div class="app-card hard">
+                            <strong>Hard Materials</strong>
+                            <p>"Fat" loops. High Coercivity. Ideal for Permanent Magnets.</p>
+                        </div>
+                        <div class="app-card soft">
+                            <strong>Soft Materials</strong>
+                            <p>"Thin" loops. Low Energy Loss. Ideal for Transformers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="integrated-signature">
+            <div class="line-deco"></div>
+            <div class="signature-content">
+                <span class="rank">AUTHOR_ID //</span>
+                <span class="dev-name">PAVAN PATIL</span>
+                <span class="serial-no">REF_25BEC077</span>
+            </div>
+            <div class="line-deco"></div>
+        </div>
+        <script src="script.js"></script>
+
+
+
+</body>
+
+</html>
+
+</body>
+
+</html
